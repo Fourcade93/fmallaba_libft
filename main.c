@@ -73,13 +73,13 @@ int		main(int ac, char **av)
 	// }
 //	ft_putnbr_fd(ft_atoi(av[1]), check_fd(av[2]));
 //	ft_putnbr(ft_atoi(av[1]));
-//	ft_putendl(ft_itoa(ft_atoi(av[1])));
-	char	**arr;
+	ft_putendl(ft_itoa(ft_atoi(av[1])));
+/*	char	**arr;
 	int		n; 
 	n = ft_atoi(av[2]);
 	arr = ft_strsplit(av[1], ' ');
 	while (n--)
-		ft_putendl(*arr++);
+		ft_putendl(*arr++);*/
 //	ft_putstr(ft_strtrim(av[1]));
 //	ft_putstr(ft_strjoin(av[1], av[2]));
 //	ft_putstr(ft_strsub(av[1], ft_atoi(av[2]), ft_atoi(av[3])));
@@ -115,12 +115,13 @@ int		main(int ac, char **av)
 //	ft_putstr(ft_strdup(av[1]));
 //	ft_putstr(ft_itoa(ft_strlen(av[1])));
 //	ft_putstr(ft_itoa(ft_memcmp(av[1], av[2], ft_atoi(av[3]))));
+//	ft_putstr(ft_itoa(ft_memcmp(av[1], av[2], ft_atoi(av[3]))));
 //	ft_putchar('\n');
 //	ft_putstr(ft_itoa(memcmp(av[1], av[2], ft_atoi(av[3]))));
 //	ft_putstr(ft_memchr(av[1], ft_atoi(av[2]), ft_atoi(av[3])));
 //	ft_putchar('\n');
 //	ft_putstr(memchr(av[4], ft_atoi(av[2]), ft_atoi(av[3])));
-//	ft_putstr(ft_memccpy(av[1], av[2], ft_atoi(av[3]), ft_atoi(av[5])));
+//	ft_putendl(ft_memccpy(av[1], av[2], ft_atoi(av[3]), ft_atoi(av[4])));
 //	ft_putstr((char*)ft_memset(av[1], ft_atoi(av[2]), ft_atoi(av[3])));
 	return (0);
 }

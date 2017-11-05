@@ -6,7 +6,7 @@
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/01 16:53:55 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/11/01 22:18:59 by fmallaba         ###   ########.fr       */
+/*   Updated: 2017/11/05 19:02:28 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ static size_t	get_len(char const *s)
 {
 	size_t	i;
 
-	i = 0;
+	i = 1;
 	while ((*s == ' ' || *s == '\n' || *s == '\t') && *s)
 		s++;
+	if (!*s)
+		return (1);
 	while (*s)
 	{
 		s++;
@@ -43,10 +45,11 @@ char	*ft_strtrim(char const *s)
 	{
 		while ((*s == ' ' || *s == '\n' || *s == '\t') && *s)
 			s++;
-		while (len--)
+		while (--len)
 			tmp[i++] = *s++;
 	}
 	else
 		return (NULL);
+	tmp[i] = '\0';
 	return (tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:32:49 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/11/04 16:15:09 by fmallaba         ###   ########.fr       */
+/*   Updated: 2017/11/05 18:57:05 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ char	*ft_strnstr(const char *a, const char *b, size_t len)
 	while (len)
 	{
 		if (len < n)
-			return (0);
-		else if (ft_strncmp(a, b, n) == 0)
+			return (NULL);
+		else if (a[0] == b[0] && ft_strncmp(a, b, n) == 0)
 			return ((char*)a);
 		a++;
 		len--;
 	}
-	return (0);
+	return (NULL);
 }

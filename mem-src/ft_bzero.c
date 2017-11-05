@@ -6,18 +6,17 @@
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 02:20:11 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/10/25 02:57:32 by fmallaba         ###   ########.fr       */
+/*   Updated: 2017/11/04 21:38:36 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *ptr, int len)
+#include <string.h>
+
+void	ft_bzero(void *ptr, size_t len)
 {
 	unsigned char	*c;
 
 	c = ptr;
-	while (--len <= 0)
-	{
-		*c = '\0';
-		c++;
-	}
+	while (len--)
+		*c++ = '\0';
 }
