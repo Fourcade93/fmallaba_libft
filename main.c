@@ -54,6 +54,8 @@ int		main(int ac, char **av)
 {
 	// t_list	*list;
 	// t_list	*map_lst;
+	// char	dest[30];
+	// char	dest2[30];
 
 	(void)ac;
 	// list = ft_lstnew(ft_strdup(av[1]), ft_strlen(av[1]) + 1);
@@ -73,13 +75,13 @@ int		main(int ac, char **av)
 	// }
 //	ft_putnbr_fd(ft_atoi(av[1]), check_fd(av[2]));
 //	ft_putnbr(ft_atoi(av[1]));
-	ft_putendl(ft_itoa(ft_atoi(av[1])));
-/*	char	**arr;
+//	ft_putendl(ft_itoa(ft_atoi(av[1])));
+	char	**arr;
 	int		n; 
 	n = ft_atoi(av[2]);
 	arr = ft_strsplit(av[1], ' ');
 	while (n--)
-		ft_putendl(*arr++);*/
+		ft_putendl(*arr++);
 //	ft_putstr(ft_strtrim(av[1]));
 //	ft_putstr(ft_strjoin(av[1], av[2]));
 //	ft_putstr(ft_strsub(av[1], ft_atoi(av[2]), ft_atoi(av[3])));
@@ -108,11 +110,13 @@ int		main(int ac, char **av)
 //	ft_putstr(ft_strcat(av[1], av[2]));
 //	ft_putstr(ft_strncpy(av[1], av[2], ft_atoi(av[3])));
 //	ft_putchar('\n');
-//	ft_putstr(strncpy(av[1], av[2], ft_atoi(av[3])));
+//	 ft_putendl(strncpy(av[1], av[2], ft_atoi(av[3])));
+//	ft_putnbr(memcmp(ft_strncpy(dest, "", ft_atoi(av[1])), strncpy(dest2, "", ft_atoi(av[1])), 29));
 //	ft_putstr(strcpy(av[1], av[2]));
 //	ft_putchar('\n');
 //	ft_putstr(ft_strcpy(av[1], av[2]));
-//	ft_putstr(ft_strdup(av[1]));
+//	ft_putendl(ft_strdup(av[1]));
+//	ft_putendl(ft_itoa(strcmp(av[1], ft_strdup(av[1]))));
 //	ft_putstr(ft_itoa(ft_strlen(av[1])));
 //	ft_putstr(ft_itoa(ft_memcmp(av[1], av[2], ft_atoi(av[3]))));
 //	ft_putstr(ft_itoa(ft_memcmp(av[1], av[2], ft_atoi(av[3]))));

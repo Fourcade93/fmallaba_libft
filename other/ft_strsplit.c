@@ -70,8 +70,10 @@ static char		**add_str(char **arr, char const *s, char c)
 char			**ft_strsplit(char const *s, char c)
 {
 	char	**arr;
+	size_t	words;
 
-	if (!*s)
+	words = count_word(s, c);
+	if (!*s || words == 0)
 	{
 		arr = (char**)malloc(sizeof(char*));
 		arr[0] = (char*)malloc(sizeof(char));
@@ -79,7 +81,7 @@ char			**ft_strsplit(char const *s, char c)
 		return (arr);
 	}
 	else
-		arr = (char**)malloc(sizeof(char*) * count_word(s, c));
+		arr = (char**)malloc(sizeof(char*) * words);
 	if (arr)
 		arr = add_str(arr, s, c);
 	else

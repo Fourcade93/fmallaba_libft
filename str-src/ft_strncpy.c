@@ -19,8 +19,6 @@ char	*ft_strncpy(char *dest, const char *src, size_t n)
 	ret = dest;
 	while (n)
 	{
-		n--;
-		*dest++ = *src++;
 		if (!*src)
 		{
 			while (n)
@@ -30,6 +28,8 @@ char	*ft_strncpy(char *dest, const char *src, size_t n)
 			}
 			return (ret);
 		}
+		n--;
+		*dest++ = *src++;
 	}
 	return (ret);
 }

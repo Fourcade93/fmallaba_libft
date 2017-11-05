@@ -6,6 +6,7 @@ GCO = gcc -c -Wall -Werror -Wextra $(SRC) $(INC)
 GCC = ar rc $(NAME) $(OBJ)
 
 all: $(NAME)
+
 $(NAME): to_o
 	$(GCC)
 
