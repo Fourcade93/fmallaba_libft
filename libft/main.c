@@ -107,7 +107,8 @@ int		main(int ac, char **av)
 //	ft_putstr(ft_itoa(ft_isalnum(av[3][0])));
 //	ft_putstr(ft_strnstr(av[1], av[2], ft_atoi(av[3])));
 //	ft_putchar('\n');
-//	ft_putstr(ft_strnstr(((void *)0), "av[2]", ft_atoi(av[1])));
+//	ft_putchar('\n');
+//	ft_strnstr(NULL, "fake", ft_atoi(av[1]));
 //	ft_putstr(ft_itoa(ft_strcmp(av[1], av[2])));
 //	ft_putstr(ft_strstr(av[1], av[2]));
 //	ft_putstr(ft_strrchr(av[1], ft_atoi(av[2])));

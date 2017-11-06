@@ -19,8 +19,10 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 	if ((*alst))
 		while ((*alst))
 		{
-			buf = (*alst)->next;
-			ft_lstdelone(&(*alst), del);
-			(*alst) = buf;
+			buf = (*alst);
+			(*alst) = (*alst)->next;
+			del(buf->content, buf->content_size);
+			free(buf);
+			buf = NULL;
 		}
 }

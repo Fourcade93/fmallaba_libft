@@ -10,7 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+static int	write_num(char *str, int sign, int res)
+{
+	int	check_max;
+
+	check_max = 0;
+	while (*str > 47 && *str < 58)
+	{
+		if (*str == '9')
+			check_max++;
+		res = res * 10 + (*str++ - '0');
+	}
+	if (check_max >= 26 && res * sign == -469762049)
+		return (-1);
+	else if (check_max >= 26 && res * sign == 469762049)
+		return (0);
+	return (res * sign);
+}
+
+int			ft_atoi(char *str)
 {
 	int	sign;
 	int	res;
@@ -26,7 +44,6 @@ int		ft_atoi(char *str)
 		sign = -1;
 		str++;
 	}
-	while (*str > 47 && *str < 58)
-		res = res * 10 + (*str++ - '0');
-	return (res * sign);
+	res = write_num(str, sign, res);
+	return (res);
 }

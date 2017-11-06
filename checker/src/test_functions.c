@@ -3600,7 +3600,7 @@ void			test_ft_strnstr_electric_memory(void *ptr) {
 
 void			test_ft_strnstr_null1(void *ptr) {
 	typeof(strnstr)	*ft_strnstr = ptr;
-	SET_EXPLANATION("your strnstr does not segfault when null parameter is sent");
+	SET_EXPLANATION("your strnstr does not segfault when null parameter is sent to first");
 
 	SANDBOX_IRAISE(
 			ft_strnstr(NULL, "fake", 3);
@@ -3609,7 +3609,7 @@ void			test_ft_strnstr_null1(void *ptr) {
 
 void			test_ft_strnstr_null2(void *ptr) {
 	typeof(strnstr)	*ft_strnstr = ptr;
-	SET_EXPLANATION("your strnstr does not segfault when null parameter is sent");
+	SET_EXPLANATION("your strnstr does not segfault when null parameter is sent to second");
 
 	SANDBOX_IRAISE(
 			ft_strnstr("fake", NULL, 3);
@@ -6101,7 +6101,7 @@ void			test_ft_strsplit_space(void *ptr) {
 			char	*s = "                  ";
 
 			char	**r = ft_strsplit(s, ' ');
-			while (*ret) {
+			while (*r) {
 				if (strcmp(*r, *ret)) {
 					SET_DIFF(*ret, *r);
 					exit(TEST_FAILED);
@@ -6164,7 +6164,7 @@ void			test_ft_strsplit_empty(void *ptr) {
 			char	*s = "";
 
 			char	**r = ft_strsplit(s, '\65');
-			while (*ret) {
+			while (*r) {
 				if (strcmp(*r, *ret)) {
 					SET_DIFF(*ret, *r);
 					exit(TEST_FAILED);

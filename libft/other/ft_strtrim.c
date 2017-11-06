@@ -31,8 +31,7 @@ static size_t	get_len(char const *s)
 	return (i);
 }
 
-
-char	*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
 	char	*tmp;
 	size_t	i;

@@ -16,14 +16,16 @@ char	*ft_strnstr(const char *a, const char *b, size_t len)
 {
 	size_t	n;
 
-	if (!*b)
+	if (*b == '\0')
 		return ((char*)a);
+	if (*a == '\0')
+		return (NULL);
 	n = ft_strlen(b);
 	while (len)
 	{
 		if (len < n)
 			return (NULL);
-		else if (a[0] == b[0] && ft_strncmp(a, b, n) == 0)
+		else if (ft_strncmp(a, b, n) == 0)
 			return ((char*)a);
 		a++;
 		len--;

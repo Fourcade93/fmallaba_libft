@@ -40,7 +40,7 @@ static int		get_len(int n)
 
 static char		*make_str(char *ret, int n, int len, int sign)
 {
-	ret[len + 1] = '\0';
+	ret[len] = '\0';
 	if (n == -2147483648)
 	{
 		sign = 2;
@@ -71,9 +71,8 @@ char			*ft_itoa(int n)
 	len = get_len(n);
 	sign = 0;
 	ret = (char*)malloc(sizeof(char) * (len + 1));
-	if (ret)
-		ret = make_str(ret, n, len, sign);
-	else
+	if (!ret)
 		return (NULL);
+	ret = make_str(ret, n, len, sign);
 	return (ret);
 }

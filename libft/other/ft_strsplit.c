@@ -16,7 +16,7 @@ static size_t	count_word(char const *s, char c)
 {
 	size_t	i;
 
-	i = 0;
+	i = 1;
 	while (*s)
 		if (*s++ != c)
 		{
@@ -26,7 +26,6 @@ static size_t	count_word(char const *s, char c)
 		}
 	return (i);
 }
-
 
 static char		*create_str(char const *s, char c)
 {
@@ -48,7 +47,7 @@ static char		**add_str(char **arr, char const *s, char c)
 
 	s_pos = 0;
 	num_of_str = 0;
-	while(s[s_pos])
+	while (s[s_pos])
 	{
 		if (s[s_pos] != c)
 		{
@@ -64,6 +63,7 @@ static char		**add_str(char **arr, char const *s, char c)
 		}
 		s_pos++;
 	}
+	arr[num_of_str] = NULL;
 	return (arr);
 }
 
@@ -73,23 +73,19 @@ char			**ft_strsplit(char const *s, char c)
 	size_t	words;
 
 	words = count_word(s, c);
-	if (!*s || words == 0)
+	if (!*s || words == 1)
 	{
-		arr = (char**)malloc(sizeof(char*));
+		arr = (char**)malloc(1);
 		if (!arr)
 			return (NULL);
-		arr[0] = (char*)malloc(sizeof(char));
-		if (!arr[0])
-			return (NULL);
-		arr[0][0] = '\0';
-		return (arr);
+		arr[0] = NULL;
 	}
 	else
+	{
 		arr = (char**)malloc(sizeof(char*) * words);
-	if (arr)
+		if (!arr)
+			return (NULL);
 		arr = add_str(arr, s, c);
-	else
-		return (NULL);
+	}
 	return (arr);
 }
-	
