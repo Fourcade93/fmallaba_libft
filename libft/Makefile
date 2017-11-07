@@ -1,18 +1,17 @@
-SRC = bonus/*.c is-src/*.c mem-src/*.c str-src/*.c other/*.c
+SRC = part-one/*.c part-two/*.c bonus/*.c
 OBJ = *.o
-INC = -Iinc/
 NAME = libft.a
 CC = gcc
-FLAGS = -Wall -Werror -Wextra $(INC)
+FLAGS = -Wall -Werror -Wextra
 CREATE_LIB = ar rc $(NAME) $(OBJ)
 
-all: $(NAME)
+all:
 
 $(NAME): $(OBJ)
 	$(CREATE_LIB)
 
-%.o: %.c
-	$(CC) $(FLAGS) -c -o $@ $(SRC)
+%.o: $(SRC)
+	$(CC) $(FLAGS) -c $< -I.
 
 clean:
 	/bin/rm -f $(OBJ)
