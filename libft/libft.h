@@ -6,7 +6,7 @@
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 00:53:32 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/10/30 16:39:54 by fmallaba         ###   ########.fr       */
+/*   Updated: 2017/11/08 21:52:45 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void				ft_striter(char *s, void (*f)(char *));
 void				ft_strclr(char *s);
 void				ft_strdel(char **as);
 char				*ft_strnew(size_t size);
+void				ft_memdel(void **ap);
 void				*ft_memalloc(size_t size);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
