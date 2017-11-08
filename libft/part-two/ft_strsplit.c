@@ -72,6 +72,8 @@ char			**ft_strsplit(char const *s, char c)
 	char	**arr;
 	size_t	words;
 
+	if (s == NULL)
+		return (NULL);
 	words = count_word(s, c);
 	if (!*s || words == 1)
 	{

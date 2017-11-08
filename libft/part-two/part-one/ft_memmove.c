@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/03 21:42:56 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/11/03 21:47:13 by fmallaba         ###   ########.fr       */
+/*   Created: 2017/10/27 18:25:16 by fmallaba          #+#    #+#             */
+/*   Updated: 2017/11/04 21:59:38 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	t_list	*buf;
+	unsigned char		*pdest;
+	const unsigned char	*psrc;
 
-	if (alst != NULL && del != NULL)
-		if ((*alst))
-			while ((*alst))
-			{
-				buf = (*alst);
-				(*alst) = (*alst)->next;
-				del(buf->content, buf->content_size);
-				free(buf);
-				buf = NULL;
-			}
+	pdest = (unsigned char*)dest;
+	psrc = (const unsigned char*)src;
+	if (pdest < psrc)
+		while (len--)
+			*pdest++ = *psrc++;
+	else
+	{
+		pdest += len;
+		psrc += len;
+		while (len--)
+			*--pdest = *--psrc;
+	}
+	return (dest);
 }

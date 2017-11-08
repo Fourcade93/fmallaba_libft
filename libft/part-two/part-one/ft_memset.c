@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/03 21:42:56 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/11/03 21:47:13 by fmallaba         ###   ########.fr       */
+/*   Created: 2017/10/24 23:33:57 by fmallaba          #+#    #+#             */
+/*   Updated: 2017/10/27 18:37:59 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	*ft_memset(void *ptr, int val, size_t len)
 {
-	t_list	*buf;
+	unsigned char	*c;
 
-	if (alst != NULL && del != NULL)
-		if ((*alst))
-			while ((*alst))
-			{
-				buf = (*alst);
-				(*alst) = (*alst)->next;
-				del(buf->content, buf->content_size);
-				free(buf);
-				buf = NULL;
-			}
+	c = ptr;
+	while (len--)
+	{
+		*c = (unsigned char)val;
+		c++;
+	}
+	return (ptr);
 }

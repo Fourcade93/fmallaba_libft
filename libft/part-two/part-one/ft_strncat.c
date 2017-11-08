@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/03 21:42:56 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/11/03 21:47:13 by fmallaba         ###   ########.fr       */
+/*   Created: 2017/10/28 20:01:54 by fmallaba          #+#    #+#             */
+/*   Updated: 2017/10/28 20:04:55 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
-	t_list	*buf;
+	char	*ret;
 
-	if (alst != NULL && del != NULL)
-		if ((*alst))
-			while ((*alst))
-			{
-				buf = (*alst);
-				(*alst) = (*alst)->next;
-				del(buf->content, buf->content_size);
-				free(buf);
-				buf = NULL;
-			}
+	ret = dest;
+	while (*dest++)
+		;
+	dest--;
+	while (*src && n--)
+		*dest++ = *src++;
+	*dest = '\0';
+	return (ret);
 }

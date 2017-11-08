@@ -38,6 +38,8 @@ char			*ft_strtrim(char const *s)
 	size_t	len;
 
 	i = 0;
+	if (s == NULL)
+		return (NULL);
 	len = get_len(s);
 	tmp = (char*)malloc(sizeof(char) * len);
 	if (tmp)

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/03 21:42:56 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/11/03 21:47:13 by fmallaba         ###   ########.fr       */
+/*   Created: 2017/10/28 22:39:33 by fmallaba          #+#    #+#             */
+/*   Updated: 2017/11/05 17:25:58 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+int		ft_strcmp(const char *a, const char *b)
 {
-	t_list	*buf;
-
-	if (alst != NULL && del != NULL)
-		if ((*alst))
-			while ((*alst))
-			{
-				buf = (*alst);
-				(*alst) = (*alst)->next;
-				del(buf->content, buf->content_size);
-				free(buf);
-				buf = NULL;
-			}
+	if ((unsigned char)*a && (unsigned char)*b)
+		while ((unsigned char)*a && (unsigned char)*b)
+		{
+			if ((unsigned char)*a != (unsigned char)*b)
+				return ((unsigned char)*a - (unsigned char)*b);
+			a++;
+			b++;
+		}
+	return ((unsigned char)*a - (unsigned char)*b);
 }
