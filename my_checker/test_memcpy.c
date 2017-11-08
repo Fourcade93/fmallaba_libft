@@ -1,3 +1,9 @@
+#include <string.h>
+#include <stdio.h>
+#include "libft.h"
+
+#define ASIZE 128
+
 void	test_memcpy_1(void)
 {
 	char	src[] = "basic test";
@@ -55,7 +61,7 @@ void	test_memcpy_4(void)
 	memcpy(a1, src, 11);
 	ft_memcpy(a2, src, 11);
 	if (memcmp(a1, a2, 11))
-		printf("%s	", "FAIL");
+		printf("%s\n", "FAIL");
 	else
-		printf("%s	", "[OK]");
+		printf("%s\n", "[OK]");
 }

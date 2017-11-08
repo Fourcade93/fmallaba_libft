@@ -1,10 +1,17 @@
+#include <string.h>
+#include <stdio.h>
+#include "libft.h"
+
+#define ASIZE 128
+
 void	test_memset_1(void)
 {
 	char	a1[ASIZE];
 	char	a2[ASIZE];
 
-	a1[ASIZE] = '\0';
-	a2[ASIZE] = '\0';
+	printf("ft_memset:	");
+	a1[ASIZE - 1] = '\0';
+	a2[ASIZE - 1] = '\0';
 	memset(a1, 'A', 127);
 	memset(a2, 'A', 127);
 	memset(a1, 'B', 20);
@@ -20,8 +27,8 @@ void	test_memset_2(void)
 	char	a1[ASIZE];
 	char	a2[ASIZE];
 
-	a1[ASIZE] = '\0';
-	a2[ASIZE] = '\0';
+	a1[ASIZE - 1] = '\0';
+	a2[ASIZE - 1] = '\0';
 	memset(a1, 'A', 127);
 	memset(a2, 'A', 127);
 	memset(a1, '\200', 20);
@@ -38,8 +45,8 @@ void	test_memset_3(void)
 	char	a2[ASIZE];
 	int		sign = 0;
 
-	a1[ASIZE] = '\0';
-	a2[ASIZE] = '\0';
+	a1[ASIZE - 1] = '\0';
+	a2[ASIZE - 1] = '\0';
 	memset(a1, 'A', 127);
 	memset(a2, 'A', 127);
 	char	*ret1 = memset(a1, 'B', 20);
@@ -67,7 +74,7 @@ void	test_memset_4(void)
 	memset(a1, '\200', 0);
 	ft_memset(a2, '\200', 0);
 	if (memcmp(a1, a2, ASIZE))
-		printf("%s	", "FAIL");
+		printf("%s\n", "FAIL");
 	else
-		printf("%s	", "[OK]");
+		printf("%s\n", "[OK]");
 }
