@@ -24,6 +24,19 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_tree
+{
+	int				val;
+	struct s_tree	*left;
+	struct s_tree	*right;
+}					t_tree;
+
+void				ft_tree_pre(t_tree *root, void (*f)(int));
+void				ft_tree_in(t_tree *root, void (*f)(int));
+void				ft_tree_post(t_tree *root, void (*f)(int));
+void				ft_tree_add_elem(t_tree **root, t_tree *new);
+t_tree				*ft_new_tree_elem(int val);
+void				ft_list_pushback(t_list **alst, t_list *new);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lstadd(t_list **alst, t_list *new);

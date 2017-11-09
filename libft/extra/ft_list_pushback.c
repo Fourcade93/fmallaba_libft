@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_list_pushback.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/24 23:51:12 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/11/08 14:22:58 by fmallaba         ###   ########.fr       */
+/*   Created: 2017/11/09 15:55:23 by fmallaba          #+#    #+#             */
+/*   Updated: 2017/11/09 15:57:00 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_atoi(char *str)
-{
-	int	sign;
-	int	res;
+#include "libft.h"
 
-	sign = 1;
-	res = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n'\
-			|| *str == '\v' || *str == '\r' || *str == '\f')
-		str++;
-	(*str == '-') ? sign = -1 : sign;
-	(*str == '-' || *str == '+') ? str++ : str;
-	while (*str > 47 && *str < 58)
-		res = res * 10 + (*str++ - '0');
-	return (res * sign);
+void	ft_list_pushback(t_list **alst, t_list *new)
+{
+	t_list	*tmp;
+
+	if (alst == NULL || new == NULL)
+		return ;
+	tmp = (*alst);
+	if (tmp)
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
 }

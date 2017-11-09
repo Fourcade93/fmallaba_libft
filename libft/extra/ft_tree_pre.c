@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_tree_pre.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/24 23:51:12 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/11/08 14:22:58 by fmallaba         ###   ########.fr       */
+/*   Created: 2017/11/09 20:05:07 by fmallaba          #+#    #+#             */
+/*   Updated: 2017/11/09 20:05:09 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_atoi(char *str)
-{
-	int	sign;
-	int	res;
+#include "libft.h"
 
-	sign = 1;
-	res = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n'\
-			|| *str == '\v' || *str == '\r' || *str == '\f')
-		str++;
-	(*str == '-') ? sign = -1 : sign;
-	(*str == '-' || *str == '+') ? str++ : str;
-	while (*str > 47 && *str < 58)
-		res = res * 10 + (*str++ - '0');
-	return (res * sign);
+void	ft_tree_pre(t_tree *root, void (*f)(int))
+{
+	t_tree	*tmp;
+
+	tmp = root;
+	if (tmp->val)
+		f(tmp->val);
+	if (tmp->left)
+		ft_tree_pre(tmp->left, f);
+	if (tmp->right)
+		ft_tree_pre(tmp->right, f);
 }

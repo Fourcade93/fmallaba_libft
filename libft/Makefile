@@ -1,4 +1,4 @@
-SRC = part-one/*.c part-two/*.c bonus/*.c
+SRC = part-one/*.c part-two/*.c bonus/*.c extra/*.c
 OBJ = *.o
 NAME = libft.a
 CC = gcc

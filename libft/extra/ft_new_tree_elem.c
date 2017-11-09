@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_new_tree_elem.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/24 23:51:12 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/11/08 14:22:58 by fmallaba         ###   ########.fr       */
+/*   Created: 2017/11/09 19:27:27 by fmallaba          #+#    #+#             */
+/*   Updated: 2017/11/09 19:27:30 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_atoi(char *str)
-{
-	int	sign;
-	int	res;
+#include "libft.h"
 
-	sign = 1;
-	res = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n'\
-			|| *str == '\v' || *str == '\r' || *str == '\f')
-		str++;
-	(*str == '-') ? sign = -1 : sign;
-	(*str == '-' || *str == '+') ? str++ : str;
-	while (*str > 47 && *str < 58)
-		res = res * 10 + (*str++ - '0');
-	return (res * sign);
+t_tree	*ft_new_tree_elem(int val)
+{
+	t_tree	*new;
+
+	new = (t_tree*)malloc(sizeof(t_tree));
+	if (!new)
+		return (NULL);
+	new->val = val;
+	new->left = NULL;
+	new->right = NULL;
+	return (new);
 }

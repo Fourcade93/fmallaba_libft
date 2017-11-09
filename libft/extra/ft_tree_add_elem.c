@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_tree_add_elem.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/24 23:51:12 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/11/08 14:22:58 by fmallaba         ###   ########.fr       */
+/*   Created: 2017/11/09 19:52:45 by fmallaba          #+#    #+#             */
+/*   Updated: 2017/11/09 19:52:47 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_atoi(char *str)
-{
-	int	sign;
-	int	res;
+#include "libft.h"
 
-	sign = 1;
-	res = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n'\
-			|| *str == '\v' || *str == '\r' || *str == '\f')
-		str++;
-	(*str == '-') ? sign = -1 : sign;
-	(*str == '-' || *str == '+') ? str++ : str;
-	while (*str > 47 && *str < 58)
-		res = res * 10 + (*str++ - '0');
-	return (res * sign);
+void	ft_tree_add_elem(t_tree **root, t_tree *new)
+{
+	if ((*root) == NULL)
+		(*root) = new;
+	else if (new->val <= (*root)->val)
+		ft_tree_add_elem(&(*root)->left, new);
+	else
+		ft_tree_add_elem(&(*root)->right, new);
 }
