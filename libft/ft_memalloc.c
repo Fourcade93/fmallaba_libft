@@ -20,7 +20,7 @@ void	*ft_memalloc(size_t size)
 
 	arr = malloc(size);
 	if (!arr)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (size--)
 		arr[i++] = 0;

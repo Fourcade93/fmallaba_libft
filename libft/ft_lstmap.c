@@ -12,28 +12,43 @@
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+static void	delete_new(t_list *new)
+{
+	t_list	*buf;
+
+	while (new)
+	{
+		buf = new->next;
+		free(new);
+		new = buf;
+	}
+}
+
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*new;
 	t_list	*ret;
-	t_list	*tmp;
 
 	if (lst == NULL || f == NULL)
 		return (NULL);
-	tmp = lst;
-	if (tmp)
+	new = (t_list*)malloc(sizeof(t_list));
+	if (new == NULL)
+		return (NULL);
+	new = f(lst);
+	if (new == NULL)
+		return (NULL);
+	lst = lst->next;
+	ret = new;
+	while (lst)
 	{
-		new = f(tmp);
-		ret = new;
-		tmp = tmp->next;
-		while (tmp)
+		new->next = f(lst);
+		if (new->next == NULL)
 		{
-			new->next = f(tmp);
-			new = new->next;
-			tmp = tmp->next;
+			delete_new(ret);
+			return (NULL);
 		}
+		new = new->next;
+		lst = lst->next;
 	}
-	else
-		ret = NULL;
 	return (ret);
 }

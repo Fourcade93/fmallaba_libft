@@ -12,7 +12,21 @@
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+static void	*crate_ncontent(t_list *new, void const *c, size_t c_size)
+{
+	void	*nc;
+
+	nc = ft_memalloc(c_size);
+	if (!nc)
+	{
+		free(new);
+		return (NULL);
+	}
+	nc = ft_memcpy(nc, c, c_size);
+	return (nc);
+}
+
+t_list		*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list	*new;
 	size_t	nsize;
@@ -28,9 +42,10 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		ncontent = ft_memalloc(content_size);
+		ncontent = crate_ncontent(new, content, content_size);
+		if (!ncontent)
+			return (NULL);
 		nsize = content_size;
-		ncontent = ft_memcpy(ncontent, content, content_size);
 		new->content = ncontent;
 		new->content_size = nsize;
 	}
