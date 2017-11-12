@@ -13,23 +13,17 @@
 static int	write_num(char *str, int sign)
 {
 	long long	res;
-	int			count;
-	int			checker;
+	long long	tmp;
 
 	res = 0;
-	count = 0;
-	checker = 0;
 	while (*str > 47 && *str < 58)
 	{
-		(*str != '0') ? checker = 1 : checker;
-		(checker == 1) ? count++ : count;
-		if ((count > 19 || (res == 922337203685477580 && *str >= '7'))\
-			&& sign == 1)
-			return (-1);
-		else if ((count > 19 || (res == 922337203685477580 && *str >= '8'))\
-			&& sign == -1)
-			return (0);
+		tmp = res;
 		res = res * 10 + (*str++ - '0');
+		if (tmp > res && sign == 1)
+			return (-1);
+		else if (tmp > res && sign == -1)
+			return (0);
 	}
 	return ((int)res * sign);
 }

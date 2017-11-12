@@ -22,16 +22,16 @@ all: $(SRC) $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CREATE_LIB) $@ $^
-	@echo "Create libft.a"
+	@echo "Create libft.a "
 
 %.o: %.c
 	@$(CC) $(FLAGS) -c -o $@ $<
 clean:
 	@/bin/rm -f $(OBJ)
-	@echo "Delete object-files"
+	@echo "Delete object-files ¿"
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-	@echo "Delete libft.a"
+	@echo "Delete libft.a ˘"
 
 re: fclean all
