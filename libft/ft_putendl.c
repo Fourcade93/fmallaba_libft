@@ -6,7 +6,7 @@
 /*   By: fmallaba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 17:14:38 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/11/03 17:17:48 by fmallaba         ###   ########.fr       */
+/*   Updated: 2017/11/13 18:24:17 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	ft_putendl(char const *s)
 {
 	if (s != NULL)
 	{
-		while (*s)
-			ft_putchar(*s++);
+		write(1, s, ft_strlen(s));
 		ft_putchar('\n');
 	}
 }
